@@ -1,3 +1,7 @@
+Git Learn
 ==========
 
-New folder to learn git
+Sobre
+-----
+
+Projeto para aprender como utilizar git.
