@@ -1,0 +1,70 @@
+Comandos:
+
+git init -- dentro da pasta correta, começa a usar git na pasta.
+git tag -- ve as versoes antigas
+git checkout (nome da versão) -- muda pra versao antiga, pra tu ver como era.
+git diff (v1) (v2) -- mostra a diferença entre as duas versões.
+git ls-files -- pra ver quais files estão sendo controlados pelo git
+git status -- parecido com ls-files
+
+git add (o que voce quer adicionar) -- Lembre que aqui vc só está criando o pacote do commit, 
+		e as alterações reais só vai aparecer quando voce commitar a nova versão.
+git commit -m "Criando Projeto" -- -m é a mensagem que descreve o teu commit
+git commit --amend --reset-author -- pra tu mudar o autor, acho que só apaga o nome e email
+git commit --global user.name "Joao Fonseca"
+git commit --global use.email "joaofonseca@gmail.com"
+git add -i -- abre o interactive mode, onde vc escolhe quais arquivos do working directoyry vao pro index
+git commit -p -- p de patch, tambem faz mais ou menos a mesma coisa, aparentemente.
+
+git remote -- mostra os repositorios remotos que voce tem pra esse local
+git remote add (nome do arquivo no remoto) (endereço do remoto) -- pra enviar o arquivo pro remoto
+git push (pra qual arquivo vc ta mandando {"origin"} ) ( qual branch será criada no remoto {"master"})  
+		-- pra enfiar coisas no teu git ::: MENTIRA! O segundo argumento sempre tem que ser master, se vc tá criando o role
+git clone (url do remoto) -- copia o negocio pro teu pc, joga na pasta que você estiver
+	Se vc fizer isso, ja fica vinculado com o remoto(github)
+git push (nome do repositorio {"origin"}) (nome da branch {"master"})
+	-- pegar as alterações do local, mandar pro remoto pra aumentar o numero de colaboradores tem que mexer no settings do github
+
+git branch -- Mostra o status das branches
+git branch (nome da nova branch) -- cria uma nova branch
+git checkout (nome da branch que vc quer trabalhar) -- muda pra branch que vc quer trabalhar
+            Aparece um asterisco do lado da que vai estar selecionado no git branch
+
+git push -u origin design -- diz que o arquivo design da maquina e do remoto deve ser igual (tambem nao entendi)
+git branch -t  design -- mesma coisa (ta piorando)        Esses comando mais insano acho que tao ali embaixo, até ("Avanços (ver mais tarde)")
+git branch -d -- deleta as branches que ja tenham sido salvas no main
+git fetch origin -- verifica todas as alterações em originO dia que 2 pessoas mexerem no mesmo branch, imagine que:
+    A pessoa "A" faz tudo que queria, e devolve pro branch    Então, a pessoa "B", ja estava trabalhando, quer enviar tambem
+    Primeira coisa que B faz é trazer as alterações pra maquina dela
+git pull origin master -- traz as alterações que nao estavam no repositorio local
+O comando git mergetool --tool-help mostra no console uma lista de programas possíveis de ser utilizados. 
+Dessa lista, pode-se escolher um, instalar no seu computador e utilizar através do comando git mergetool -t nome_do_programa.
+git rebase master desenvolvimento -- atualiza uma branch com base em outra (master como branch pra desenvolvimento)     
+	Imagina que mudaram o master, e vc tava num branch, vc coloca as alterações do master no teu branch (nao sei qual eh a diferença pros pulls da vida)
+
+
+
+Avanços )ver mais tarde(:
+
+Uma tarefa bem comum é a criação de uma nova branch seguida da troca para essa branch criada. 
+Poderíamos fazer isso com a sequência de comandos git branch nomeDaBranch e git checkout nomeDaBranch.
+ Para facilitar, o Git nos fornece uma opção do comando git checkout que realiza este trabalho.
+ Qual a opção que deve ser passada para realizar tal tarefa? ::: -b
+
+Realizando o comando git push origin design, criamos a branch remota design no repositório referente ao origin.
+Porém, ela não está rastreada, isto é, a nossa branch local não sabe qual é a branch remota à qual ela se refere. 
+Para resolver esse problema, passamos uma opção ao comando anterior. Qual é essa opção? ::: -u
+
+Uma sequência de tarefas bem comum referente à cópia de uma branch localizada num repositório remoto é:
+	1. Criação de uma branch local com o mesmo nome da branch remota
+	2. Mudança para essa nova branch criada
+	3. Criação de link entre a branch local e remota
+Para evitar toda essa tarefa, o git nos fornece um atalho para evitar esse trabalho todo com uma opção do comando git checkout. 
+Que opção é essa? ::: -t
+
+
+
+
+Outros:
+
+Pasta com controle de informações = repositorio
